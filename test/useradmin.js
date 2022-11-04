@@ -12,7 +12,7 @@ before(async () => {
 describe("Como administrador quiero administrar Usuarios:", function () {
   it("Agregar usuario", async () => {
     const usuarios = {
-      name: "Nuevo Usuario 2",
+      name: "Nuevo Usuario 3",
       email: "nuevo1@gmail.com",
       password: "admin",
       rol: "admin",
@@ -61,7 +61,7 @@ describe("Como administrador quiero administrar Usuarios:", function () {
   });
 
 
-////////////MOSTRADOS DE OTRA FORMA///////////////////////////////////////////////
+ ////////////MOSTRADOS DE OTRA FORMA///////////////////////////////////////////////
 
  
   /* describe("Como administrador quiero agregar usuario:", function () {

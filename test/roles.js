@@ -10,7 +10,7 @@ const expect = require("chai").expect;
  });
 
 
- describe("Como administrador quiero administrar roles:", function () {
+ describe("Como administrador quiero administrar Roles:", function () {
 
 
   it("Agregar rol", async () => {
@@ -33,10 +33,10 @@ const expect = require("chai").expect;
     expect(response.data).to.be.an("Array");
   });
 
-   /*it("Mostrar detalle de producto", async () => {
-    //console.log(newuser)
+   it("Mostrar detalle de Rol", async () => {
+    //console.log(newroles)
 
-    const response = await axios.get(API_URL + "/producto/" + newproductos._id);
+    const response = await axios.get(API_URL + "/roles/" + newroles._id);
 
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("object");
@@ -44,21 +44,22 @@ const expect = require("chai").expect;
  
 
 
-  it("Editar Producto", async () => {
-    const producto = {
+  it("Editar Rol", async () => {
+    //console.log(newroles)
+    const rol = {
       codigo : 200,
 
     }
-    const response = await axios.put(API_URL + "/actualizarproductos/" + newproductos._id,producto);
+    const response = await axios.put(API_URL + "/actualizarroles/" + newroles._id,rol);
 
 
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("object");
   });
-  it("Eliminar Producto", async () => {
-    const response = await axios.delete(API_URL + "/deleteproductos/" + newproductos._id);
+  it("Eliminar Rol", async () => {
+    const response = await axios.delete(API_URL + "/deleteroles/" + newroles._id);
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("object");
-  }); */
+  });
 
 }); 

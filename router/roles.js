@@ -4,17 +4,17 @@ const {postrolesInfo,getrolesinfo,getrolunico,updateroles,deleteroles} = require
 
 
 //EndPoints
-//Ruta para crear Productos
+//Ruta para crear Roles
 router.post("/postroles",postrolesInfo);
-//Ruta para mostrar Productos
+//Ruta para mostrar 
 router.get("/listaderoles",getrolesinfo);
+//Ruta para mostrar rol por ID
 
-//Ruta para mostrar productos por ID
-//router.get("/producto/:productoid",getproductounico);
+router.get("/roles/:rolesid",getrolunico);
 //Ruta para actualizar
-//router.put("/actualizarproductos/:id",updateproductos);
+router.put("/actualizarroles/:id",updateroles);
 //Ruta para eliminar
-//router.delete("/deleteproductos/:id",deleteproductos);
+router.delete("/deleteroles/:id",deleteroles);
 
 
 

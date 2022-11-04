@@ -12,7 +12,7 @@ before(async () => {
 describe("Como administrador quiero administrar Sucursales:", function () {
   it("Agregar Sucursal", async () => {
     const sucursal = {
-      name: "Mexicali",
+      name: "Ensenada",
       direccion: "Blvd Lazaro Cardenas",
       ubicacion: "Zona Norte",
       telefono: 6864128595,

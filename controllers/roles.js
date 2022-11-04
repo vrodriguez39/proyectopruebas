@@ -43,46 +43,46 @@ exports.getrolesinfo = async (req, res) => {
   }
 };
 
-/////////////////////Para mostrar producto por ID///////////////////////////////////
-exports.getproductounico = async (req, res) => {
+/////////////////////Para mostrar Rol por ID///////////////////////////////////
+exports.getrolunico = async (req, res) => {
     try {
   
-      var productoquery = {_id: req.params.productoid };
+      var rolesquery = {_id: req.params.rolesid };
   
-      const productounico = await productos. findOne(productoquery);
+      const rolunico = await roles.findOne(rolesquery);
   
-      res.status(200).json(productounico);
+      res.status(200).json(rolunico);
   
     } catch (error) {
   
-      res.status(404).json({error: "Producto no encontrado" });
+      res.status(404).json({error: "Rol no encontrado" });
     }
   };
 /////////////////Para Actualizar/////////////////////////////////////////////
-exports.updateproductos = async (req, res) => {
+exports.updateroles = async (req, res) => {
   try {
-    const { name, codigo, descripcion, precio, stock, sucursal} = req.body;
+    const { name, status} = req.body;
  
     var updateQuery = { _id: req.params.id };
     
-    const actualizar = { name, codigo, descripcion, precio, stock, sucursal };
+    const actualizar = { name, status };
 
-    const productoUpdate = await productos.findByIdAndUpdate(updateQuery, {
+    const rolesUpdate = await roles.findByIdAndUpdate(updateQuery, {
       $set: actualizar,
     });
-    res.status(200).json(productoUpdate)
+    res.status(200).json(rolesUpdate)
   } catch (error) {
-    res.status(404).json({ error: "Producto no encontrado para actualizar" });
+    res.status(404).json({ error: "Rol no encontrado para actualizar" });
   }
 };
 
 ////////////////////////////////Para eliminar/////////////////////////////////
-exports.deleteproductos = async (req, res) => {
+exports.deleteroles = async (req, res) => {
   try {
     var deleteQuery = { _id: req.params.id };
-    const deleteproductos = await productos.findByIdAndDelete(deleteQuery);
-    res.status(200).json(deleteproductos);
+    const deleteroles = await roles.findByIdAndDelete(deleteQuery);
+    res.status(200).json(deleteroles);
   } catch (error) {
-    res.status(404).json({ error: "Productoso no encontrado para eliminar" });
+    res.status(404).json({ error: "Rol no encontrado para eliminar" });
   }
 };

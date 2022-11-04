@@ -42,7 +42,7 @@ const createsucursales = async () => {
 const createroles = async () => {
   const roles = {
     name: "admin",
-    status: "Activa",
+    status: "Activo",
   };
   const response = await axios.post(API_URL + "/postroles", roles);
   return response.data;
