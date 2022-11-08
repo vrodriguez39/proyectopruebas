@@ -18,6 +18,7 @@ app.use("/api",require("./router/productos"));
 app.use("/api",require("./router/sucursales"));
 app.use("/api",require("./router/roles"));
 app.use("/api",require("./router/auth"));
+app.use("/api",require("./router/ventas"));
 
 
 /* app.listen(port,(req,res)=>{

@@ -47,6 +47,24 @@ const createroles = async () => {
   const response = await axios.post(API_URL + "/postroles", roles);
   return response.data;
 };
+/////////////////////////Crear Ventas///////////////////////////
+const createventas = async () => {
+  const ventas = {
+      id_cliente: 12345,
+      id_emp: "123hjb544",
+      fecha_venta: "07/11/2022",
+      subtotal: 1200,
+      descuento: 100,
+      total: 1100,
+     };
+  const response = await axios.post(
+    API_URL + "/postventasinfo",
+    ventas
+  );
+  return response.data;
+};
+
+
 
 module.exports = {
   API_URL,
@@ -54,4 +72,5 @@ module.exports = {
   createproductos,
   createsucursales,
   createroles,
+  createventas,
 };

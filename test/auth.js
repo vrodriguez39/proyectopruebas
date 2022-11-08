@@ -13,7 +13,7 @@ describe("Como administrador quiero hacer login:", function () {
     it("Autentificacion", async () => {
       const usuarios = {
         name: "Nuevo Usuario 11",
-        email: "vrodriguez31@gmail.com",
+        email: "vrodriguez33@gmail.com",
         password: "admin",
         rol: "admin",
         sucursal: "Tecate",
