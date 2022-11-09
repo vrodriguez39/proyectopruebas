@@ -4,6 +4,18 @@ let chai = require("chai");
 let should = chai.should();
 const axios = require("axios");
 const { API_URL, createUser } = require("./test_utils");
+const User = require("../models/User");
+
+
+const { success, error, validation } = require("../helpers/responseApi");
+const { randomString } = require("../helpers/common");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const Verification = require("../models/Verification");
+
+
+
+
 
 before(async () => {
   newuser = await createUser();
@@ -148,37 +160,15 @@ it("Falta el campo de Password", async () => {
 });
 
 ///////////////////Error por correo Existente//////////////////////////////////
-/* it("Error de Correo ya existente", async () => {
-   // Validando
-   const errors = validationResult(req);
-   if (!errors.isEmpty())
-     return res.status(422).json(validation(errors.array()));
- 
-   const { name, email, password,rol,sucursal } = req.body;
- 
-   try {
-     let user = await User.findOne({ email: email.toLowerCase() });
- 
-     // Encontrar por email
-     if (user)
-       return res
-         .status(422)
-         .json(validation({ msg: "Email ya registrado" }));
- 
-     let newUser = new User({
-       name,
-       email: email.toLowerCase().replace(/\s+/, ""),
-       password,
-       rol,
-       sucursal
-     });
- 
-   
-   } catch (err) {
-     console.error(err.message);
-     res.status(500).json(error("Server error", res.statusCode));
-   }
- }); */
+it("Correo existente", async () => {
+  //console.log(newuser)
+
+  const response = await axios.get(API_URL + "/usuario/" + newuser._id);
+
+  expect(response.status).to.be.equal(200);
+  //expect(response.data).to.be.an("object");
+});
+
 
 
 });

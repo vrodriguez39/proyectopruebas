@@ -14,7 +14,7 @@ const Verification = require("../models/Verification");
  * @access  public 
  */
 exports.register = async (req, res) => {
-  // Validation
+  // Validacion
   const errors = validationResult(req);
   if (!errors.isEmpty())
     return res.status(422).json(validation(errors.array()));
@@ -28,7 +28,7 @@ exports.register = async (req, res) => {
     if (user)
       return res
         .status(422)
-        .json(validation({ msg: "Email already registered" }));
+        .json(validation({ msg: "Email ya esta registrado" }));
 
     let newUser = new User({
       name,
@@ -49,7 +49,7 @@ exports.register = async (req, res) => {
     let verification = new Verification({
       token: randomString(50),
       userId: newUser._id,
-      type: "Register New Account",
+      type: "Registro de Nueva Cuenta",
     });
 
     // Save the verification data
@@ -58,7 +58,7 @@ exports.register = async (req, res) => {
     // Send the response to server
     res.status(201).json(
       success(
-        "Register success, please activate your account.",
+        "Registro Exitoso, Por favor activa tu cuenta.",
         {
           user: {
             id: newUser._id,
@@ -89,7 +89,7 @@ exports.verify = async (req, res) => {
   try {
     let verification = await Verification.findOne({
       token,
-      type: "Register New Account",
+      type: "Registrar Nueva Cuenta",
     });
 
     // Check the verification data
