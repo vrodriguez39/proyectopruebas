@@ -111,7 +111,7 @@ describe("Como administrador quiero agregar productos:", function () {
     }
   });
 ///////////////////Error por falta de Codigo//////////////////////////////////
-it("Falta el nombre del Codigo", async () => {
+it("Falta el numero de Codigo", async () => {
   try {
     const productos = {
       name: "Mouse Inalambrico",
@@ -134,7 +134,7 @@ it("Falta el nombre del Codigo", async () => {
   }
 });
 ///////////////////Error por falta de Precio//////////////////////////////////
-it("Falta el Precio", async () => {
+it("Falta el Precio del producto", async () => {
   try {
     const productos = {
       name: "Mouse Inalambrico",
@@ -156,7 +156,7 @@ it("Falta el Precio", async () => {
     }
   }
 });
-it("Falta de poner la cantidad del producto", async () => {
+it("Falta de poner la cantidad", async () => {
   try {
     const productos = {
       name: "Mouse Inalambrico",
@@ -178,6 +178,30 @@ it("Falta de poner la cantidad del producto", async () => {
     }
   }
 });
+it("Falta de poner a que sucursal", async () => {
+  try {
+    const productos = {
+      name: "Mouse Inalambrico",
+      codigo: 1,
+      descripcion: "Mouses de 5 Botones",
+      precio: 600,
+      stock: 10,
+      //sucursal: "Rosarito"
+    };
+    const response = await axios.post(API_URL + "/postproductosinfo", productos);
+    expect(error.response.status).not.to.be.equal(201);
+    expect(response.data).to.be.an("object");
+
+  } catch (error) {
+    if (error.response) {
+      expect(error.response.status).not.to.be.equal(201);
+    } else {
+      throw error;
+    }
+  }
+});
+
+
 
 })
 
@@ -218,7 +242,10 @@ describe("Como administrador quiero editar un Producto:", function () {
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("object");
   });
+
 })
+
+
 ////////////////////Eliminado un Producto/////////////////////////////
 describe("Como administrador quiero ver detalle de un Producto:", function () {
 
@@ -227,4 +254,5 @@ describe("Como administrador quiero ver detalle de un Producto:", function () {
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("object");
   });
+
 })

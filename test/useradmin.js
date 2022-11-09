@@ -75,7 +75,7 @@ before(async () => {
 
 ////////////MOSTRADOS DE OTRA FORMA///////////////////////////////////////////////
 
-describe("Como administrador quiero agregar usuario:", function () {
+describe("Como administrador quiero agregar usuarios:", function () {
   it("Usuario agregado", async () => {
     const usuarios = {
       name: "Nuevo Usuario 1",
@@ -160,7 +160,7 @@ it("Falta el campo de Password", async () => {
 });
 
 ///////////////////Error por correo Existente//////////////////////////////////
-it("Correo existente", async () => {
+it("Mensaje de Correo existente", async () => {
   //console.log(newuser)
 
   const response = await axios.get(API_URL + "/usuario/" + newuser._id);
@@ -172,16 +172,6 @@ it("Correo existente", async () => {
 
 
 });
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -207,7 +197,7 @@ describe("Como administrador quiero ver detalle de un Usuario:", function () {
   });
 });
 
-  describe("Como administrador quiero editar un Usuario:", function () {
+  describe("Como administrador quiero editar y actualizar un Usuario:", function () {
     it("Usuario Editado", async () => {
       const response = await axios.get(API_URL + "/usuario/" + newuser._id);
 
