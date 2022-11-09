@@ -21,6 +21,10 @@ app.use("/api",require("./router/auth"));
 app.use("/api",require("./router/ventas"));
 
 
+
+
+
+
 /* app.listen(port,(req,res)=>{
  console.log("Servidor Conectado");
 });
@@ -30,6 +34,12 @@ db(); */
 mongoose.connect(process.env.MONGODB_URI)
 .then(()=>console.log("Conectado a MongoDb Atlas"))
 .catch((error)=> console.error(error))
+
+
+
+
+
+
 
 // Run the server
 app.listen(port, () => console.log('Servidor Corriendo en',port));

@@ -206,7 +206,6 @@ describe("Como administrador quiero ver todos los usuarios:", function () {
 
 
 
-
 describe("Como administrador quiero ver detalle de un Usuario:", function () {
   it("Detalles mostrados", async () => {
     //console.log(newuser)
@@ -216,9 +215,10 @@ describe("Como administrador quiero ver detalle de un Usuario:", function () {
     expect(response.status).to.be.equal(200);
     //expect(response.data).to.be.an("object");
   });
+});
 
   describe("Como administrador quiero editar un Usuario:", function () {
-    it("Editar Usuario", async () => {
+    it("Usuario Editado", async () => {
       const response = await axios.get(API_URL + "/usuario/" + newuser._id);
 
       expect(response.data.email).to.be.equals("nuevo@gmail.com");
@@ -242,4 +242,4 @@ describe("Como administrador quiero ver detalle de un Usuario:", function () {
       expect(response.data).to.be.an("object");
     });
   });
-});
+
