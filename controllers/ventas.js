@@ -5,7 +5,7 @@ const router = require("../router/ventas");
 ///////////////////////para crear Ventas////////////////////////////////
 exports.postventasInfo = async (req, res) => {
   try {
-    const { id_cliente,id_emp,fecha_venta, subtotal, descuento, total} = req.body;
+    const { id_cliente,id_emp,fecha_venta,matricula,receta, subtotal, descuento, total} = req.body;
     //validando Venta
     if (!id_cliente) {
       return res.status(422).json({ error: "Por favor agrega No. de cliente" });
@@ -15,6 +15,12 @@ exports.postventasInfo = async (req, res) => {
     }
     if (!fecha_venta) {
       return res.status(422).json({ error: "Por favor agrega fecha de venta" });
+    }
+    if (!matricula) {
+      return res.status(422).json({ error: "Por favor agrega fela matricula" });
+    }
+    if (!receta) {
+      return res.status(422).json({ error: "Por favor agrega la receta" });
     }
     if (!subtotal) {
       return res.status(422).json({ error: "Por favor agrega el Subtotal" });
@@ -30,6 +36,8 @@ exports.postventasInfo = async (req, res) => {
       id_cliente,
       id_emp,
       fecha_venta,
+      matricula,
+      receta,
       subtotal,
       descuento,
       total

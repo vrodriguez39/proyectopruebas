@@ -53,6 +53,8 @@ const createventas = async () => {
       id_cliente: 12345,
       id_emp: "123hjb544",
       fecha_venta: "07/11/2022",
+      matricula: "MRD19170",
+      receta:"F120",
       subtotal: 1200,
       descuento: 100,
       total: 1100,

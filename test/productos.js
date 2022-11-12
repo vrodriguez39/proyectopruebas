@@ -9,7 +9,6 @@ before(async () => {
   newproductos = await createproductos();
 });
 
-
 /* describe("Como administrador quiero administrar productos:", function () {
 
 
@@ -70,8 +69,6 @@ before(async () => {
 });*/
 
 describe("Como administrador quiero agregar productos:", function () {
-
-
   it("Producto Agregado", async () => {
     const productos = {
       name: "Mouse Inalambrico",
@@ -79,9 +76,12 @@ describe("Como administrador quiero agregar productos:", function () {
       descripcion: "Mouses de 5 Botones",
       precio: 600,
       stock: 10,
-      sucursal: "Rosarito"
+      sucursal: "Rosarito",
     };
-    const response = await axios.post(API_URL + "/postproductosinfo", productos);
+    const response = await axios.post(
+      API_URL + "/postproductosinfo",
+      productos
+    );
     expect(response.status).to.be.equal(201);
     expect(response.data).to.be.an("object");
     //console.log(response.data); muestra en consola
@@ -96,12 +96,14 @@ describe("Como administrador quiero agregar productos:", function () {
         descripcion: "Mouses de 5 Botones",
         precio: 600,
         stock: 10,
-        sucursal: "Rosarito"
+        sucursal: "Rosarito",
       };
-      const response = await axios.post(API_URL + "/postproductosinfo", productos);
+      const response = await axios.post(
+        API_URL + "/postproductosinfo",
+        productos
+      );
       expect(error.response.status).not.to.be.equal(201);
       expect(response.data).to.be.an("object");
-
     } catch (error) {
       if (error.response) {
         expect(error.response.status).not.to.be.equal(201);
@@ -110,100 +112,107 @@ describe("Como administrador quiero agregar productos:", function () {
       }
     }
   });
-///////////////////Error por falta de Codigo//////////////////////////////////
-it("Falta el numero de Codigo", async () => {
-  try {
-    const productos = {
-      name: "Mouse Inalambrico",
-      //codigo: 1,
-      descripcion: "Mouses de 5 Botones",
-      precio: 600,
-      stock: 10,
-      sucursal: "Rosarito"
-    };
-    const response = await axios.post(API_URL + "/postproductosinfo", productos);
-    expect(error.response.status).not.to.be.equal(201);
-    expect(response.data).to.be.an("object");
-
-  } catch (error) {
-    if (error.response) {
+  ///////////////////Error por falta de Codigo//////////////////////////////////
+  it("Falta el numero de Codigo", async () => {
+    try {
+      const productos = {
+        name: "Mouse Inalambrico",
+        //codigo: 1,
+        descripcion: "Mouses de 5 Botones",
+        precio: 600,
+        stock: 10,
+        sucursal: "Rosarito",
+      };
+      const response = await axios.post(
+        API_URL + "/postproductosinfo",
+        productos
+      );
       expect(error.response.status).not.to.be.equal(201);
-    } else {
-      throw error;
+      expect(response.data).to.be.an("object");
+    } catch (error) {
+      if (error.response) {
+        expect(error.response.status).not.to.be.equal(201);
+      } else {
+        throw error;
+      }
     }
-  }
-});
-///////////////////Error por falta de Precio//////////////////////////////////
-it("Falta el Precio del producto", async () => {
-  try {
-    const productos = {
-      name: "Mouse Inalambrico",
-      codigo: 1,
-      descripcion: "Mouses de 5 Botones",
-      //precio: 600,
-      stock: 10,
-      sucursal: "Rosarito"
-    };
-    const response = await axios.post(API_URL + "/postproductosinfo", productos);
-    expect(error.response.status).not.to.be.equal(201);
-    expect(response.data).to.be.an("object");
-
-  } catch (error) {
-    if (error.response) {
+  });
+  ///////////////////Error por falta de Precio//////////////////////////////////
+  it("Falta el Precio del producto", async () => {
+    try {
+      const productos = {
+        name: "Mouse Inalambrico",
+        codigo: 1,
+        descripcion: "Mouses de 5 Botones",
+        //precio: 600,
+        stock: 10,
+        sucursal: "Rosarito",
+      };
+      const response = await axios.post(
+        API_URL + "/postproductosinfo",
+        productos
+      );
       expect(error.response.status).not.to.be.equal(201);
-    } else {
-      throw error;
+      expect(response.data).to.be.an("object");
+    } catch (error) {
+      if (error.response) {
+        expect(error.response.status).not.to.be.equal(201);
+      } else {
+        throw error;
+      }
     }
-  }
-});
-it("Falta de poner la cantidad", async () => {
-  try {
-    const productos = {
-      name: "Mouse Inalambrico",
-      codigo: 1,
-      descripcion: "Mouses de 5 Botones",
-      precio: 600,
-      //stock: 10,
-      sucursal: "Rosarito"
-    };
-    const response = await axios.post(API_URL + "/postproductosinfo", productos);
-    expect(error.response.status).not.to.be.equal(201);
-    expect(response.data).to.be.an("object");
-
-  } catch (error) {
-    if (error.response) {
+  });
+    ///////////////////Error por falta de Cantidad//////////////////////////////////
+  it("Falta de poner la cantidad", async () => {
+    try {
+      const productos = {
+        name: "Mouse Inalambrico",
+        codigo: 1,
+        descripcion: "Mouses de 5 Botones",
+        precio: 600,
+        //stock: 10,
+        sucursal: "Rosarito",
+      };
+      const response = await axios.post(
+        API_URL + "/postproductosinfo",
+        productos
+      );
       expect(error.response.status).not.to.be.equal(201);
-    } else {
-      throw error;
+      expect(response.data).to.be.an("object");
+    } catch (error) {
+      if (error.response) {
+        expect(error.response.status).not.to.be.equal(201);
+      } else {
+        throw error;
+      }
     }
-  }
-});
-it("Falta de poner a que sucursal", async () => {
-  try {
-    const productos = {
-      name: "Mouse Inalambrico",
-      codigo: 1,
-      descripcion: "Mouses de 5 Botones",
-      precio: 600,
-      stock: 10,
-      //sucursal: "Rosarito"
-    };
-    const response = await axios.post(API_URL + "/postproductosinfo", productos);
-    expect(error.response.status).not.to.be.equal(201);
-    expect(response.data).to.be.an("object");
-
-  } catch (error) {
-    if (error.response) {
+  });
+  ///////////////////Error por falta de Poner Sucursal//////////////////////////////////
+  it("Falta de poner a que sucursal", async () => {
+    try {
+      const productos = {
+        name: "Mouse Inalambrico",
+        codigo: 1,
+        descripcion: "Mouses de 5 Botones",
+        precio: 600,
+        stock: 10,
+        //sucursal: "Rosarito"
+      };
+      const response = await axios.post(
+        API_URL + "/postproductosinfo",
+        productos
+      );
       expect(error.response.status).not.to.be.equal(201);
-    } else {
-      throw error;
+      expect(response.data).to.be.an("object");
+    } catch (error) {
+      if (error.response) {
+        expect(error.response.status).not.to.be.equal(201);
+      } else {
+        throw error;
+      }
     }
-  }
+  });
 });
-
-
-
-})
 
 ////////////////////Mostrando todos los Productos/////////////////////////////
 describe("Como administrador quiero ver todos los productos:", function () {
@@ -213,7 +222,6 @@ describe("Como administrador quiero ver todos los productos:", function () {
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("Array");
   });
-
 });
 
 ////////////////////Mostrando detalles de un Producto/////////////////////////////
@@ -226,33 +234,32 @@ describe("Como administrador quiero ver detalle de un Producto:", function () {
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("object");
   });
- 
 });
-////////////////////Editando un Producto/////////////////////////////
+////////////////////Editando un Producto/////////////////////////////////////////
 describe("Como administrador quiero editar un Producto:", function () {
   it("Producto Editado", async () => {
     const producto = {
-      codigo : 200,
-
-    }
-    const response = await axios.put(API_URL + "/actualizarproductos/" + newproductos._id,producto);
+      codigo: 200,
+    };
+    const response = await axios.put(
+      API_URL + "/actualizarproductos/" + newproductos._id,
+      producto
+    );
 
     //expect(response.data.codigo).to.be.equals("100");
 
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("object");
   });
+});
 
-})
-
-
-////////////////////Eliminado un Producto/////////////////////////////
-describe("Como administrador quiero ver detalle de un Producto:", function () {
-
+////////////////////Eliminado un Producto//////////////////////////////////////
+describe("Como administrador eliminar de un Producto:", function () {
   it("Producto Eliminado", async () => {
-    const response = await axios.delete(API_URL + "/deleteproductos/" + newproductos._id);
+    const response = await axios.delete(
+      API_URL + "/deleteproductos/" + newproductos._id
+    );
     expect(response.status).to.be.equal(200);
     expect(response.data).to.be.an("object");
   });
-
-})
+});

@@ -10,6 +10,14 @@ var ventasSchema = mongoose.Schema({
   fecha_venta: {
     type: String,
   },
+  matricula: {
+    type: String,
+  
+  },
+  receta: {
+    type: String,
+   
+  },
   subtotal: {
     type: Number,
   },
