@@ -75,7 +75,7 @@ before(async () => {
 
 ////////////MOSTRADOS DE OTRA FORMA///////////////////////////////////////////////
 
-describe("Como administrador quiero agregar usuarios:", function () {
+describe("Como Administrador/Lider quiero agregar usuarios:", function () {
   it("Usuario agregado", async () => {
     const usuarios = {
       name: "Nuevo Usuario 1",
@@ -175,7 +175,7 @@ it("Mensaje de Correo existente", async () => {
 
 
 
-describe("Como administrador quiero ver todos los usuarios:", function () {
+describe("Como administrador/Lider quiero ver todos los usuarios:", function () {
   it("Usuarios mostrados", async () => {
     const response = await axios.get(API_URL + "/listadeusuarios");
     //console.log(response.data); muestra todos los usuarios en la consola
@@ -186,7 +186,7 @@ describe("Como administrador quiero ver todos los usuarios:", function () {
 
 
 
-describe("Como administrador quiero ver detalle de un Usuario:", function () {
+describe("Como Administrador/Lider quiero ver detalle de un Usuario:", function () {
   it("Detalles mostrados", async () => {
     //console.log(newuser)
 
@@ -197,7 +197,7 @@ describe("Como administrador quiero ver detalle de un Usuario:", function () {
   });
 });
 
-  describe("Como administrador quiero editar y actualizar un Usuario:", function () {
+  describe("Como Administrador/Lider quiero editar y actualizar un Usuario:", function () {
     it("Usuario Editado", async () => {
       const response = await axios.get(API_URL + "/usuario/" + newuser._id);
 
@@ -213,7 +213,7 @@ describe("Como administrador quiero ver detalle de un Usuario:", function () {
       expect(response.data).to.be.an("object");
     });
   });
-  describe("Como administrador quiero eliminar un Usuario:", function () {
+  describe("Como Administrador quiero eliminar un Usuario:", function () {
     it("Usuario Eliminado", async () => {
       const response = await axios.delete(
         API_URL + "/deleteuser/" + newuser._id

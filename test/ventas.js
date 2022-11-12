@@ -10,7 +10,7 @@ before(async () => {
 });
 //////////////////////////Hacer una venta/////////////////////////////////
 
-describe("Como administrador quiero hacer una venta:", function () {
+describe("Como Administrador/Lider/Empleado quiero hacer una venta:", function () {
   it("Crear Venta", async () => {
     const ventas = {
       id_cliente: 12345,
@@ -81,5 +81,5 @@ it("Falta la Receta del Doctor", async () => {
 });
 
 });
-//////////////////////////Error por falta de No. de receta una venta///////////////////////////////// 
+
 

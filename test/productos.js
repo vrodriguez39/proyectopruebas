@@ -68,7 +68,7 @@ before(async () => {
 
 });*/
 
-describe("Como administrador quiero agregar productos:", function () {
+describe("Como Administrador quiero agregar productos:", function () {
   it("Producto Agregado", async () => {
     const productos = {
       name: "Mouse Inalambrico",
@@ -215,7 +215,7 @@ describe("Como administrador quiero agregar productos:", function () {
 });
 
 ////////////////////Mostrando todos los Productos/////////////////////////////
-describe("Como administrador quiero ver todos los productos:", function () {
+describe("Como Administrador/Lider/Empleado quiero ver todos los productos:", function () {
   it("Productos Mostrados", async () => {
     const response = await axios.get(API_URL + "/listadeproductos");
     //console.log(response.data); muestra todos los productos en la consola
@@ -225,7 +225,7 @@ describe("Como administrador quiero ver todos los productos:", function () {
 });
 
 ////////////////////Mostrando detalles de un Producto/////////////////////////////
-describe("Como administrador quiero ver detalle de un Producto:", function () {
+describe("Como Administrador/Lider/Empleado quiero ver detalle de un Producto:", function () {
   it("Detalles Mostrados", async () => {
     //console.log(newuser)
 
@@ -236,7 +236,7 @@ describe("Como administrador quiero ver detalle de un Producto:", function () {
   });
 });
 ////////////////////Editando un Producto/////////////////////////////////////////
-describe("Como administrador quiero editar un Producto:", function () {
+describe("Como Administrador/Lider quiero editar un Producto:", function () {
   it("Producto Editado", async () => {
     const producto = {
       codigo: 200,
@@ -254,7 +254,7 @@ describe("Como administrador quiero editar un Producto:", function () {
 });
 
 ////////////////////Eliminado un Producto//////////////////////////////////////
-describe("Como administrador eliminar de un Producto:", function () {
+describe("Como Administrador quiero eliminar un Producto:", function () {
   it("Producto Eliminado", async () => {
     const response = await axios.delete(
       API_URL + "/deleteproductos/" + newproductos._id
