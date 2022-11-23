@@ -25,4 +25,5 @@ date: {
 
 
 });
-module.exports = mongoose.model("Userinfo",userSchema);
+
+module.exports = mongoose.model("Userinfo",userSchema,);

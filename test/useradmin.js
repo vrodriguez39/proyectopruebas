@@ -12,6 +12,7 @@ const { randomString } = require("../helpers/common");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Verification = require("../models/Verification");
+const { request, application } = require("express");
 
 
 
@@ -136,7 +137,7 @@ it("Falta el campo de email", async () => {
     }
   }
 });
-///////////////////Error por falta de Password//////////////////////////////////
+///////////////Error por falta de Password//////////////////////////////////
 it("Falta el campo de Password", async () => {
   try {
     const usuarios = {

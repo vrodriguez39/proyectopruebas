@@ -4,17 +4,13 @@ const { randomString } = require("../helpers/common");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const User = require("../models/User")
 const Verification = require("../models/Verification");
 
 
-/**
- * @desc    Register a new user
- * @method  POST api/auth/register
- * @access  public 
- */
+
 exports.register = async (req, res) => {
-  // Validacion
+  // Validation
   const errors = validationResult(req);
   if (!errors.isEmpty())
     return res.status(422).json(validation(errors.array()));
@@ -34,8 +30,8 @@ exports.register = async (req, res) => {
       name,
       email: email.toLowerCase().replace(/\s+/, ""),
       password,
-      rol,
-      sucursal
+        rol,
+      sucursal,
     });
 
     // Hash the password
@@ -49,7 +45,7 @@ exports.register = async (req, res) => {
     let verification = new Verification({
       token: randomString(50),
       userId: newUser._id,
-      type: "Registro de Nueva Cuenta",
+      type: "Nueva Cuenta registrada",
     });
 
     // Save the verification data
@@ -58,12 +54,13 @@ exports.register = async (req, res) => {
     // Send the response to server
     res.status(201).json(
       success(
-        "Registro Exitoso, Por favor activa tu cuenta.",
+        "Registro exitoso, por favor activa tu cuentat.",
         {
           user: {
             id: newUser._id,
             name: newUser.name,
             email: newUser.email,
+
             verified: newUser.verified,
             verifiedAt: newUser.verifiedAt,
             createdAt: newUser.createdAt,
@@ -89,14 +86,14 @@ exports.verify = async (req, res) => {
   try {
     let verification = await Verification.findOne({
       token,
-      type: "Registrar Nueva Cuenta",
+      type: "Registrar nueva cuenta",
     });
 
     // Check the verification data
     if (!verification)
       return res
         .status(404)
-        .json(error("No verification data found", res.statusCode));
+        .json(error("Cuenta No verificada", res.statusCode));
 
     // If verification data exists
     // Get the user data
@@ -129,4 +126,22 @@ exports.verify = async (req, res) => {
     console.log(err);
     res.status(500).json(error("Server error", res.statusCode));
   }
+};
+
+
+
+
+exports.login= async (req, res) => {
+  res.status(200).send("Contenido Publico.");
+}
+exports.userBoard = (req, res) => {
+  res.status(200).send("User Content.");
+};
+
+exports.adminBoard = (req, res) => {
+  res.status(200).send("Admin Content.");
+};
+
+exports.moderatorBoard = (req, res) => {
+  res.status(200).send("Moderator Content.");
 };

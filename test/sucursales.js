@@ -172,7 +172,7 @@ it("Falta de poner el status de la sucursal", async () => {
 });
 });
 ///////////////Mostrar todas las Sucursales///////////////////////////////////
-describe("Como administrador quiero ver todas las sucursales:", function () {
+describe("Como administrador/lider quiero ver todas las sucursales:", function () {
   it("Sucursales Mostradas", async () => {
     const response = await axios.get(API_URL + "/listadesucursales");
     //console.log(response.data); //muestra todos las sucursales en la consola

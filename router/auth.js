@@ -4,7 +4,8 @@ const router = require("express").Router();
 const {
   register,
   verify,
-  login,
+ login
+
 } = require("../controllers/AuthController");
 
 // Middleware
@@ -12,8 +13,8 @@ const { registerValidation,loginValidation,
 } = require("../middlewares/auth");
 
 // Routes
-router.post("/register", registerValidation, register);
-router.get("/verify/:token", verify);
-
+router.post("/registrar", registerValidation, register);
+router.get("/verificar/:token", verify);
+router.post("/login", login);
 
 module.exports = router;

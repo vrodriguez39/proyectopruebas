@@ -68,7 +68,7 @@ before(async () => {
 
 });*/
 
-describe("Como Administrador quiero agregar productos:", function () {
+describe("Como Administrador/Lider quiero agregar productos:", function () {
   it("Producto Agregado", async () => {
     const productos = {
       name: "Mouse Inalambrico",
@@ -254,7 +254,7 @@ describe("Como Administrador/Lider quiero editar un Producto:", function () {
 });
 
 ////////////////////Eliminado un Producto//////////////////////////////////////
-describe("Como Administrador quiero eliminar un Producto:", function () {
+describe("Como Administrador/Lider quiero eliminar un Producto:", function () {
   it("Producto Eliminado", async () => {
     const response = await axios.delete(
       API_URL + "/deleteproductos/" + newproductos._id

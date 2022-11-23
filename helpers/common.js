@@ -1,8 +1,3 @@
-/**
- * Common functions that used in this project
- *
- */
-
  exports.randomString = (length) => {
     let result = "";
     let characters =
