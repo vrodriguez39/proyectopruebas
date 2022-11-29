@@ -12,7 +12,7 @@ before(async () => {
 /* describe("Como administrador quiero administrar productos:", function () {
 
 
-  it("Agregar producto", async () => {
+  it("Agregar producto", async () => {fg
     const productos = {
       name: "Mouse Inalambrico",
       codigo: 1,
